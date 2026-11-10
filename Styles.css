@@ -1,0 +1,44 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: #f4f4f8;
+}
+
+#ahorcado-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.figura-ahorcado {
+  stroke: #222;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+.parte-ahorcado {
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+.parte-ahorcado.oculto {
+  opacity: 0;
+}
+
+#palabra-container {
+  font-size: 2rem;
+  letter-spacing: 6px;
+  margin: 20px 0;
+}
+
+#btn-reiniciar {
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  background: #3b82f6;
+  color: white;
+}
