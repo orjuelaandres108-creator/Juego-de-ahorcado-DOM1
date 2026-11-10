@@ -11,11 +11,13 @@
 <body>
 
     <h1>Juego del Ahorcado</h1>
+    <h2>Bienvenidos al juego</h2>
+    <h4>Descubre la palabra secreta sin agotar tus 6 intentos, !!!suerte¡¡¡</h4>
 
     <div id="ahorcado-container">
         <svg height="220" width="200" viewBox="0 0 200 200" class="figura-ahorcado">
 
-            <!-- 1. PIES Y PIERNAS (Error 1) -->
+
             <g id="parte-0" class="parte-ahorcado oculto">
                 <line x1="94" y1="125" x2="80" y2="162" />
                 <line x1="106" y1="125" x2="120" y2="162" />
@@ -23,28 +25,23 @@
                 <ellipse cx="128" cy="167" rx="12" ry="5" />
             </g>
 
-            <!-- 2. TORSO (Error 2) -->
             <g id="parte-1" class="parte-ahorcado oculto">
                 <rect x="86" y="72" width="28" height="53" rx="12" />
             </g>
 
-            <!-- 3. BRAZOS (Error 3) -->
             <g id="parte-2" class="parte-ahorcado oculto">
                 <line x1="88" y1="88" x2="60" y2="112" />
                 <line x1="112" y1="88" x2="140" y2="112" />
             </g>
 
-            <!-- 4. CABEZA (Error 4) -->
             <g id="parte-3" class="parte-ahorcado oculto">
                 <circle cx="100" cy="50" r="22" />
             </g>
 
-            <!-- 5. BOCA TRISTE (Error 5) -->
             <g id="parte-4" class="parte-ahorcado oculto">
                 <path d="M 90 62 Q 100 53 110 62" />
             </g>
 
-            <!-- 6. OJOS CON X (Error 6) -->
             <g id="parte-5" class="parte-ahorcado oculto">
                 <line x1="88" y1="41" x2="96" y2="49" />
                 <line x1="96" y1="41" x2="88" y2="49" />
@@ -54,14 +51,12 @@
         </svg>
     </div>
 
-    <!-- Contenedor donde tu script inyectará los guiones y letras adivinadas -->
     <div id="palabra-container"></div>
-
-    <!-- Botón para reiniciar la partida -->
     <button id="btn-reiniciar">Reiniciar Partida</button>
-
-    <!-- Tu archivo de lógica en JavaScript -->
     <script src="Script.js"></script>
 </body>
 
 </html>
+
+<h4>¡¡¡Precio por partida perdida 5K!!!</h4>
+<h3>¡¡¡Juego creado por Daniel Viasus y Harold Orjuela!!!</h3>  
