@@ -1,5 +1,5 @@
 // --- 1. ESTADO DEL JUEGO ---
-const palabrasDisponibles = ["JAVASCRIPT", "PROGRAMACION", "DESARROLLADOR", "DOM", "ETIQUETA"];
+const palabrasDisponibles = ["MANZANA", "PERA", "BANANO", "NARANJA", "FRESA", "MANGO", "CEREZA", "UVA", "PIÑA", "COCO"];
 let palabraSecreta = "";
 let letrasIntentadas = []; 
 let intentosMaximos = 6;   
@@ -10,11 +10,9 @@ let juegoTerminado = false; // Bandera para bloquear el teclado cuando termine e
 function iniciarJuego() {
   const indiceAleatorio = Math.floor(Math.random() * palabrasDisponibles.length);
   palabraSecreta = palabrasDisponibles[indiceAleatorio];
-  
   letrasIntentadas = [];
   erroresActuales = 0;
   juegoTerminado = false;
-  
   console.log("Palabra secreta seleccionada:", palabraSecreta); 
   actualizarTablero();
 }
@@ -26,7 +24,6 @@ function actualizarTablero() {
 
   for (let i = 0; i < palabraSecreta.length; i++) {
     const letra = palabraSecreta[i];
-    
     if (letrasIntentadas.includes(letra)) {
       estadoPalabraHTML += `<span class="letra-adivinada">${letra}</span> `;
     } else {
@@ -41,10 +38,17 @@ function actualizarTablero() {
   // Verificamos si ganó (si no quedan letras ocultas y el juego no ha terminado)
   if (letrasFaltantes === 0 && palabraSecreta.length > 0 && !juegoTerminado) {
     juegoTerminado = true;
-    alert("Felicidades, has ganado el juego!!");
+    alert("¡Felicidades, has ganado el juego!!");
   }
 }
 
+function actualizarMuneco() {
+  for (let i = 0; i < intentosMaximos; i++) {
+    const parte = document.getElementById(`parte-${i}`);
+    // Se muestra si el número de errores ya llegó a esa parte
+    parte.classList.toggle("oculto", i >= erroresActuales);
+  }
+}
 
 // --- 3. CAPTURAR LA TECLA DEL USUARIO ---
 document.addEventListener("keydown", (event) => {
@@ -57,7 +61,7 @@ document.addEventListener("keydown", (event) => {
   if (esUnaLetraValida) {
     if (!letrasIntentadas.includes(letra)) {
       letrasIntentadas.push(letra);
-      
+
       if (palabraSecreta.includes(letra)) {
         console.log(`¡Bien! La letra ${letra} es correcta.`);
       } else {
@@ -70,23 +74,17 @@ document.addEventListener("keydown", (event) => {
           alert(`Te has quedado sin intentos. La palabra era: ${palabraSecreta}`);
         }
       }
-
       actualizarTablero();
-
     } else {
       console.log(`Ya habías intentado la letra ${letra}. ¡Prueba con otra!`);
     }
   }
 });
 
+// --- 4. BOTÓN DE REINICIO ---
+document.getElementById("btn-reiniciar").addEventListener("click", () => {
+  iniciarJuego();
+});
+
 // Iniciamos el juego al cargar
 iniciarJuego();
-
-function actualizarMuneco() {
-  for (let i = 0; i < intentosMaximos; i++) {
-    const parte = document.getElementById(`parte-${i}`);
-    // Se muestra si el número de errores ya llegó a esa parte
-    parte.classList.toggle("oculto", i >= erroresActuales);
-  }
-}
-
